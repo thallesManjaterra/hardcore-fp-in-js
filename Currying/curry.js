@@ -1,10 +1,8 @@
 const add = (x, y) => x + y;
 
-const toPair = (f) => ([x, y]) => f(x, y);
+const flip = (f) => (y, x) => f(x, y);
 
-const fromPair = (f) => (x, y) => f([x, y]);
+const x = flip(add)(1, 3);
 
-const result = fromPair(toPair(add))(1, 2);
-
-console.log(result);
+console.log(x);
 
