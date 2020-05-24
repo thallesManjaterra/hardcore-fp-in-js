@@ -1,8 +1,11 @@
 const add = (x, y) => x + y;
 
-const flip = (f) => (y, x) => f(x, y);
+const curry = (f) => (x) => (y) => f(x, y);
 
-const x = flip(add)(1, 3);
+const curriedAdd = curry(add);
 
-console.log(x);
+const increment = curriedAdd(1);
 
+const result = increment(5);
+
+console.log(result);
