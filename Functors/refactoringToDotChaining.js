@@ -22,5 +22,3 @@ const halfFirstLargeNumber = xs =>
 const result = halfFirstLargeNumber([1, 4, 50, 100, 10000, 5000]);
 
 console.log(result);
-
-
