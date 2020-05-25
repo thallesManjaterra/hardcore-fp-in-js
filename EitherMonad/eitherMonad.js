@@ -14,24 +14,27 @@ const Left = x => ({
     , toString: `Left(${x})`
 });
 
+const fromNullable = R.ifElse(
+    R.isNil
+    , Left
+    , Right
+);
 
-const findColor = (name) => {
-const found =
-    {
-        red: '#ff4444'
-        , blue: '#3b5998'
-        , yellow: '#fff68f'
-    }[name];
-return found ? Right(found) :Left('notFound');
-}
+const findColor = (name) =>
+    fromNullable(
+        {
+            red: '#ff4444'
+            , blue: '#3b5998'
+            , yellow: '#fff68f'
+        }[name]
+    );
 
-const result = () =>
+const result =
     findColor('red')
         .map(R.toUpper)
-        .map(R.slice(1, Infinity))
         .fold(
             () => 'no color'
             , R.identity
         )
 
-console.log(result());
+console.log(result);
