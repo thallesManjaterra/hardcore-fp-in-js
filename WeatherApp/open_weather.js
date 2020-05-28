@@ -2,7 +2,7 @@ import { Task } from '../types.js';
 import { compose, invoker } from 'ramda';
 
 const makeWeatherUrl = ({ zip, apiKey }) =>
-    `http://api.openweathermap.org/data/2.5/forecast?zip=${zip},us&APPID=${apiKey}`
+    `http://api.openweathermap.org/data/2.5/forecast?zip=${zip},br&units=metric&APPID=${apiKey}`
 
 const parseJSON = invoker(0, 'json');
 
